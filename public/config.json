@@ -56,7 +56,7 @@
             "timeout": 2000
        },
        "stop": {
-           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/stop/",
+           "url": "https://twilio-sms-activity.herokuapp.com/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -114,7 +114,7 @@
                         }
                     },                    
                     {
-                        "email": {
+                        "email": {w
                             "dataType": "Email",
                             "isNullable": true,
                             "direction": "out"
