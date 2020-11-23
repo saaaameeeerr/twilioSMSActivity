@@ -17,11 +17,11 @@
             "inArguments": [
                 {
                   "email": "{{Contact.Default.EmailAddress}}",
-                  "to": "{{Contact.Attribute.TwilioV1.TwilioNumber}}" 
+                  "to": "{{Contact.Attribute.TwilioDE.TwilioNumber}}" 
                 }               
             ],
             "outArguments": [],
-            "url": "https://twilio-sfmc.herokuapp.com/journeybuilder/execute",
+            "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/execute",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -30,9 +30,9 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "e962d1d4-8b07-4e76-89be-ecd1f1423b6d",
+      "applicationExtensionKey": "7e2acd6f-11f4-4224-b58c-a17e2cccb67f",
        "save": {
-           "url": "https://twilio-sfmc.herokuapp.com/save",
+           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/save",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -40,7 +40,7 @@
             "timeout": 2000
        },
        "publish": {
-           "url": "https://twilio-sfmc.herokuapp.com/publish",
+           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/publish",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -48,7 +48,7 @@
             "timeout": 2000
        },
        "validate": {
-           "url": "https://twilio-sfmc.herokuapp.com/validate",
+           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/validate",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -56,7 +56,7 @@
             "timeout": 2000
        },
        "stop": {
-           "url": "https://twilio-sfmc.herokuapp.com/stop",
+           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
