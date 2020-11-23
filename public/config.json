@@ -114,7 +114,7 @@
                         }
                     },                    
                     {
-                        "email": {w
+                        "email": {
                             "dataType": "Email",
                             "isNullable": true,
                             "direction": "out"
