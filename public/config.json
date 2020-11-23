@@ -1,27 +1,64 @@
+
 {
     "workflowApiVersion": "1.1",
     "metaData": {
-       "icon": "images/iconSmall.png",
-       "category": "message"
+        "icon": "images/iconSmall.png",
+        "category": "message"
     },
     "type": "REST",
     "lang": {
-       "en-US": {
-           "name": "Twilio SMS",
-           "description": "Send Twilio SMS with Journey Builder",
-           "TwilioMessage":"test"
-       }
+        "en-US": {
+            "name": "Twilio SMS",
+            "description": "Send Twilio SMS with Journey Builder",
+            "TwilioMessage": "test"
+        }
     },
     "arguments": {
         "execute": {
-            "inArguments": [
-                {
-                  "email": "{{Contact.Default.EmailAddress}}",
-                  "to": "{{Contact.Attribute.TwilioDE.TwilioNumber}}" 
-                }               
-            ],
+            "inArguments": [{
+                "email": "{{Contact.Default.EmailAddress}}",
+                "to": "{{Contact.Attribute.TwilioDE.TwilioNumber}}"
+            }],
             "outArguments": [],
-            "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/execute",
+            "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/execute/",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 100000,
+            "retryCount": 1,
+            "retryDelay": 10000,
+            "concurrentRequests": 5
+        }
+    },
+    "configurationArguments": {
+        "applicationExtensionKey": "7e2acd6f-11f4-4224-b58c-a17e2cccb67f",
+        "save": {
+            "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/save/",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 2000
+        },
+        "publish": {
+            "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/publish/",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 2000
+        },
+        "validate": {
+            "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/validate/",
+            "verb": "POST",
+            "body": "",
+            "format": "json",
+            "useJwt": false,
+            "timeout": 2000
+        },
+        "stop": {
+            "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -29,90 +66,54 @@
             "timeout": 2000
         }
     },
-    "configurationArguments": {
-      "applicationExtensionKey": "7e2acd6f-11f4-4224-b58c-a17e2cccb67f",
-       "save": {
-           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/save",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       },
-       "publish": {
-           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/publish",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       },
-       "validate": {
-           "url": "https://twilio-sms-activity.herokuapp.com/journeybuilder/validate",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       },
-       "stop": {
-           "url": "https://twilio-sms-activity.herokuapp.com/stop",
-            "verb": "POST",
-            "body": "",
-            "format": "json",
-            "useJwt": false,
-            "timeout": 2000
-       }
-    },
     "wizardSteps": [
-       { "label": "Create SMS Message", "key": "step1" }
+        { "label": "Create SMS Message", "key": "step1" }
     ],
     "userInterfaces": {
-       "configModal": {
-           "height": 600,
-           "width": 800,
-           "fullscreen": false
-       }
+        "configModal": {
+            "height": 600,
+            "width": 800,
+            "fullscreen": false
+        }
     },
     "schema": {
         "arguments": {
             "execute": {
-                "inArguments": [
-                    {
+                "inArguments": [{
                         "accountSid": {
                             "dataType": "String",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "authToken": {
                             "dataType": "String",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "from": {
                             "dataType": "Phone",
                             "isNullable": true,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "to": {
                             "dataType": "Phone",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
                     },
                     {
                         "body": {
                             "dataType": "String",
                             "isNullable": false,
-                            "direction": "out"   
+                            "direction": "out"
                         }
-                    },                    
+                    },
                     {
                         "email": {
                             "dataType": "Email",
