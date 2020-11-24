@@ -104,7 +104,7 @@ exports.execute = function(req, res) {
     const body = requestBody.body;;
 
     const client = require('twilio')(accountSid, authToken);
-
+    console.log(to);
     client.messages
         .create({
             body: body,
