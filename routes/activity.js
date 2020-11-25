@@ -113,14 +113,18 @@ exports.execute = function(req, res) {
             from: '+12018905995',
             to: '+91' + to
         }
-                ,  function( responsedata) {
+                , .on('response', function(response) {
+    console.log(response); // 200
+    console.log(/* I need to get response body string here */); // <--- can I have the response body as a string here?
+})  
+                //function( responsedata) {
        
       
-        console.log('1234');
-        console.log(responsedata);
+     //   console.log('1234');
+    //    console.log(responsedata);
        
         
-   }         //this function is executed when a response is received from Twilio
+ //  }         //this function is executed when a response is received from Twilio
 );
      //   .then(message => console.log(message))
       //  .done();
