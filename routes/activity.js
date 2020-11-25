@@ -115,7 +115,7 @@ exports.execute = function(req, res) {
         .then(message => console.log(message))
         .done();
 
-
+  console.log(message.sid);
 
     // FOR TESTING
     logData(req);
