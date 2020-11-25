@@ -113,11 +113,11 @@ exports.execute = function(req, res) {
             from: '+12018905995',
             to: '+91' + to
         }
-                ,  function( responseData) {
+                ,  function( responsedata) {
        
       
         console.log('1234');
-        console.log(responseData);
+        console.log(responsedata);
        
         
    }         //this function is executed when a response is received from Twilio
