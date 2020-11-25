@@ -5,6 +5,7 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
+const http = require("http");
 
 exports.logExecuteData = [];
 
@@ -111,14 +112,15 @@ exports.execute = function(req, res) {
             statusCallback: 'http://postb.in/1234abcd',
             from: '+12018905995',
             to: '+91' + to
-        },  function(err, responseData) {
-        if(!err)
-        {
-        console.log('1234');
-        console.log(responseData);
         }
+               // ,  function( responseData) {
+       
+       // {
+       // console.log('1234');
+       // console.log(responseData);
+       // }
         
-    }         //this function is executed when a response is received from Twilio
+ //   }         //this function is executed when a response is received from Twilio
 )
         .then(message => console.log(message))
         .done();
