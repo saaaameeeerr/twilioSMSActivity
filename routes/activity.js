@@ -5,6 +5,7 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
+var request = require("request");
 //const http = require("http");
 
 exports.logExecuteData = [];
@@ -113,10 +114,12 @@ exports.execute = function(req, res) {
             from: '+12018905995',
             to: '+91' + to
         }
-                , .on('response', function(response) {
-    console.log(response); // 200
-    console.log(/* I need to get response body string here */); // <--- can I have the response body as a string here?
-})  
+       , request(url, function (error, response) {
+          console.log('error:', error); 
+          console.log('response : ', response ); 
+          console.log('response status code : ', response.statusCode); 
+       
+}); 
                 //function( responsedata) {
        
       
@@ -125,7 +128,7 @@ exports.execute = function(req, res) {
        
         
  //  }         //this function is executed when a response is received from Twilio
-);
+//);
      //   .then(message => console.log(message))
       //  .done();
 
