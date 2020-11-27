@@ -135,7 +135,7 @@ exports.execute = function(req, res) {
           {
             json: "true",
             headers: {'Content-Type': 'application/json'},
-            url: "https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token"
+            url: "https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token",
             body:
             {
             "grant_type": "client_credentials",
