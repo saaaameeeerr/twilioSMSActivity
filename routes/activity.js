@@ -115,10 +115,24 @@ exports.execute = function(req, res) {
             to: '+91' + to
         }
        , function (error, response) {
-          console.log('error:', error); 
-          console.log('response : ', response ); 
-        //  console.log('response status code : ', response.statusCode); 
-       
+         // console.log('error:', error); 
+        //  console.log('response : ', response ); 
+          var accountSid = response.accountSid;
+          var body = response.body;
+          var dateCreated = response.dateCreated;
+          var from = response.from;
+          var status = response.status;
+          var to = response.to;
+        
+          console.log(accountSid); 
+          console.log(body); 
+          console.log(dateCreated); 
+          console.log(from); 
+          console.log(status); 
+          console.log(to); 
+         
+          
+          
 }); 
                 //function( responsedata) {
        
