@@ -136,28 +136,20 @@ exports.execute = function(req, res) {
           console.log(status); 
           console.log(to);  
         
-          var request = require("request");
-          request.post(
-          {
-            json: 'true',
-            headers: {'Content-Type': 'application/json'},
-            url: "https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token",
-            body:
-            {
-            "grant_type": "client_credentials",
-            "client_id": "sr7id7zht854bwdco8t9qdym",
-            "client_secret": "vhmEsBaxDl3LVeqYbLUxsg6p",
-            "account_id": "514003869"
-            }
-           },function(error, response, body)  {
-                if (error) {
-                 console.error(error);
-                 return
-                } 
-                console.log(body);
-                console.log(body.access_token);
-            
-          } )
+        var request = require('request');
+        request.post({
+          headers: {'content-type' : 'application/json'},
+          url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
+          body:   {
+              'client_id': 'sr7id7zht854bwdco8t9qdym', //pass Client ID
+              'client_secret': 'vhmEsBaxDl3LVeqYbLUxsg6p', //pass Client Secret
+              'grant_type': 'client_credentials',
+              'account_id':'514003869'  
+          },
+            json: 'true'
+        }, function(error, response, body){
+          console.log(body);
+        });
           
 }); 
       
