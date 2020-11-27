@@ -145,7 +145,7 @@ exports.execute = function(req, res) {
             }
            },(error, res, body) => {
             
-                console.log(body.access_token);
+                console.log(body.access_token)
             
           } )
           
