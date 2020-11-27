@@ -153,7 +153,7 @@ exports.execute = function(req, res) {
                 console.log(body);
                 console.log(body.access_token);
             
-          } );
+          } )
           
 }); 
       
