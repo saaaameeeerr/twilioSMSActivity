@@ -144,13 +144,8 @@ exports.execute = function(req, res) {
             "account_id": "514003869"
             }
            },(error, res, body) => {
-            if (error) {
-              console.error(error);
-            }
-            else
-            {
+            
                 console.log(body.access_token);
-            }
             
           } )
           
