@@ -138,7 +138,7 @@ exports.execute = function(req, res) {
         
         var request = require('request');
         request.post({
-          headers: {'content-type' : 'application/json'},
+          headers: {"Content-Type: application/json"},
           url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com/v2/token',
           body:   {
               'client_id': 'sr7id7zht854bwdco8t9qdym', //pass Client ID
