@@ -114,10 +114,10 @@ exports.execute = function(req, res) {
             from: '+12018905995',
             to: '+91' + to
         }
-       , request(url, function (error, response) {
+       , function (error, response) {
           console.log('error:', error); 
           console.log('response : ', response ); 
-          console.log('response status code : ', response.statusCode); 
+        //  console.log('response status code : ', response.statusCode); 
        
 }); 
                 //function( responsedata) {
@@ -132,7 +132,7 @@ exports.execute = function(req, res) {
      //   .then(message => console.log(message))
       //  .done();
 
-  console.log(message.sid);
+ // console.log(message.sid);
 
     // FOR TESTING
     logData(req);
