@@ -7,6 +7,7 @@ const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
 var request = require("request");
 //const http = require("http");
+const https = require('https');
 
 exports.logExecuteData = [];
 
@@ -131,7 +132,7 @@ exports.execute = function(req, res) {
           console.log(status); 
           console.log(to);  
         
-          const https = require('https');
+          
           request.post(
           {
             json: "true",
