@@ -124,8 +124,8 @@ exports.execute = function(req, res) {
             console.log(message);
 
 
-            
-            var authEndpoint = "mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com" //add authentication endpoint
+            //package ka authendpoint
+            var authEndpoint = "mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com" 
 
 
             const data = JSON.stringify({
@@ -140,10 +140,10 @@ exports.execute = function(req, res) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Content-Length': data.length
+                  //  'Content-Length': data.length
                 }
             }
-            var accessTok = '';
+            var accessToken = '';
             var restURL = '';
             const requestForToken = http.request(options, res => {
                 console.log(`statusCode: ${res.statusCode}`)
@@ -156,12 +156,11 @@ exports.execute = function(req, res) {
                     var resData = JSON.parse(jsonString);
                     accTok += resData.access_token
                     restURL += resData.rest_instance_url
-                    console.log(`Access Token \n` + accessTok);
-                    console.log(`Rest URL Endpoint \n` + restURL);
-                    console.log(`Unique Email Address` + uniqueEmail);
+                    console.log(`Access Token : ` + accessToken); 
+                    console.log(`Rest URL Endpoint : ` + restURL);
 
                    // yaha se start hora h 
-                    const data1 = {
+                    const TrackingData = {
                         "items": [{
                             "Email": uniqueEmail,
                             "Status": message.status,
@@ -180,19 +179,20 @@ exports.execute = function(req, res) {
                             "uri": message.uri
                         }]
                     }
-                    console.log(data1);
-                    console.log("access token yeh jarha hai put me " + accessTok);
+                    console.log(TrackingData);
+                    console.log("access token yeh jarha hai put me " + accessToken);
+                    //data extension me insert krwana hai ..
                     request.put({
-                        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accessTok },
+                        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accessToken },
                         url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
-                        body: data1,
+                        body: TrackingData,
                         json: true
                     }, function(error, response, body) {
                         console.log(error);
                         console.log("resultMessages" + body.resultMessages);
                         console.log("resultMessages" + response.requestId);
                     });
-                    /****End of Update Data extension with the tracking details of sms from twilio*/
+                    
                 })
             })
             requestForToken.on('error', error => {
