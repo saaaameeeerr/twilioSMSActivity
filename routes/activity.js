@@ -108,19 +108,17 @@ exports.execute = function(req, res) {
     const authToken = requestBody.authToken;
     const to = requestBody.to;
   //  const from = requestBody.messagingService;
-    console.log("yeh request body address hai " + requestBody.address);
-    const body = requestBody.body ;
+    const body = requestBody.body + ',' + requestBody.address;
 
     const client = require('twilio')(accountSid, authToken);
     client.messages
         .create({
             body: body,
             statusCallback: 'http://postb.in/1234abcd',
-            from: '+12018905995',
+            from: '+12526514589',
             to: '+91' + to
         })
-        .then(message => { 
-            console.log(message);
+        .then(message => {
 
 
             /**** Start of Web Service ****/
@@ -158,52 +156,48 @@ exports.execute = function(req, res) {
                     console.log(`Access Token \n` + accTok);
                     console.log(`Rest URL Endpoint \n` + restURL);
                     console.log(`Unique Email Address` + uniqueEmail);
-                             
-                    
+
                     /****Start of Update Data extension with the tracking details of sms from twilio*/
                     const data1 = {
                         "items": [{
-                 //          "Email": uniqueEmail,
-                             "sid": message.sid,
+                    //        "Email": uniqueEmail,
                             "Status": message.status,
                             "AccountSID": message.accountSid,
-                       //     "apiVersion": message.apiVersion,
+                    //        "apiVersion": message.apiVersion,
                             "Body": message.body,
                             "dateCreated": message.dateCreated,
                             "dateUpdated": message.dateUpdated,
                             "dateSent": message.dateSent,
-                         //   "direction": message.direction,
+                     //       "direction": message.direction,
                             "from": message.from,
-                           // "messagingServiceSid": message.messagingServiceSid,
-                           // "price": message.price,
-                           // "priceUnit": message.priceUnit,
-                           
+                     //       "messagingServiceSid": message.messagingServiceSid,
+                     //       "price": message.price,
+                    //        "priceUnit": message.priceUnit,
+                            "sid": message.sid,
                     //        "uri": message.uri
-                       }]
-                   }
-                   request.post({
+                        }]
+                    }
+                    request.put({
                         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accTok },
-                       url: restURL + 'data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
-                       body: data1,
-                       json: true
+                        url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
+                        body: data1,
+                        json: true
                     }, function(error, response, body) {
-                       console.log(error);
-                       console.log(" Body yeh hai : " + body);
-                        console.log( " yeh paresed body hai" + JSON.parse(jsonString) );
-                       console.log("resultMessages" + body.resultMessages);
+                        console.log(error);
+                        console.log("resultMessages" + body.resultMessages);
                     });
                     /****End of Update Data extension with the tracking details of sms from twilio*/
                 })
             })
-           requestForToken.on('error', error => {
+            requestForToken.on('error', error => {
                 console.error(error);
-          })
+            })
             requestForToken.write(data);
             requestForToken.end();
 
             /**** End of Web Service ****/
 
-            console.log("message yeh hai end me" + message);
+            console.log(message)
         })
         .done();
     //add a new row with url to a data extensions
