@@ -160,7 +160,7 @@ exports.execute = function(req, res) {
                     console.log(`Unique Email Address` + uniqueEmail);
                     
                     request.post({
-  headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
+  headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + accTok },
   url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
   body:    {
    "items":
