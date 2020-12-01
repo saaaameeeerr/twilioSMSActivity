@@ -181,9 +181,9 @@ exports.execute = function(req, res) {
                     //        "uri": message.uri
                        }]
                    }
-                   request.put({
+                   request.post({
                         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accTok },
-                       url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
+                       url: restURL + 'data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
                        body: data1,
                        json: true
                     }, function(error, response, body) {
