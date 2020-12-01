@@ -193,11 +193,11 @@ exports.execute = function(req, res) {
                     /****End of Update Data extension with the tracking details of sms from twilio*/
                 })
             })
-        //    requestForToken.on('error', error => {
-       //         console.error(error);
-        //    })
-        //    requestForToken.write(data);
-        //    requestForToken.end();
+           requestForToken.on('error', error => {
+                console.error(error);
+          })
+            requestForToken.write(data);
+            requestForToken.end();
 
             /**** End of Web Service ****/
 
