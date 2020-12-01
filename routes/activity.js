@@ -110,7 +110,7 @@ exports.execute = function(req, res) {
     const authToken = requestBody.authToken;
     const to = requestBody.to;
     const from = requestBody.messagingService;
-    const body = requestBody.body + ',' + requestBody.address;
+    const body = requestBody.body ;
 
     const client = require('twilio')(accountSid, authToken);
     client.messages
@@ -124,7 +124,7 @@ exports.execute = function(req, res) {
             console.log(message);
 
 
-            /**** Start of Web Service ****/
+            
             var authEndpoint = "mc6vgk-sxj9p08pqwxqz9hw9-4my.auth.marketingcloudapis.com" //add authentication endpoint
 
 
@@ -143,7 +143,7 @@ exports.execute = function(req, res) {
                     'Content-Length': data.length
                 }
             }
-            var accTok = '';
+            var accessTok = '';
             var restURL = '';
             const requestForToken = http.request(options, res => {
                 console.log(`statusCode: ${res.statusCode}`)
@@ -156,40 +156,41 @@ exports.execute = function(req, res) {
                     var resData = JSON.parse(jsonString);
                     accTok += resData.access_token
                     restURL += resData.rest_instance_url
-                    console.log(`Access Token \n` + accTok);
+                    console.log(`Access Token \n` + accessTok);
                     console.log(`Rest URL Endpoint \n` + restURL);
                     console.log(`Unique Email Address` + uniqueEmail);
 
-                    /****Start of Update Data extension with the tracking details of sms from twilio*/
+                   // yaha se start hora h 
                     const data1 = {
                         "items": [{
                             "Email": uniqueEmail,
-                   //         "Status": message.status,
-                     //       "AccountSID": message.accountSid,
-                       //     "apiVersion": message.apiVersion,
-                         //   "Body": message.body,
-                         //   "dateCreated": message.dateCreated,
-                         //   "dateUpdated": message.dateUpdated,
-                      //      "dateSent": message.dateSent,
-                        //    "direction": message.direction,
-                        //    "from": message.from,
-                        //    "messagingServiceSid": message.messagingServiceSid,
-                        //    "price": message.price,
-                       //     "priceUnit": message.priceUnit,
-                       //     "sid": message.sid,
-                       //     "uri": message.uri
+                            "Status": message.status,
+                            "AccountSID": message.accountSid,
+                            "apiVersion": message.apiVersion,
+                            "Body": message.body,
+                            "dateCreated": message.dateCreated,
+                            "dateUpdated": message.dateUpdated,
+                            "dateSent": message.dateSent,
+                            "direction": message.direction,
+                            "from": message.from,
+                            "messagingServiceSid": message.messagingServiceSid,
+                            "price": message.price,
+                            "priceUnit": message.priceUnit,
+                            "sid": message.sid,
+                            "uri": message.uri
                         }]
                     }
                     console.log(data1);
-                    console.log("access token yeh jarha hai put me " + accTok);
+                    console.log("access token yeh jarha hai put me " + accessTok);
                     request.put({
-                        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accTok },
+                        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accessTok },
                         url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
                         body: data1,
                         json: true
                     }, function(error, response, body) {
                         console.log(error);
                         console.log("resultMessages" + body.resultMessages);
+                        console.log("resultMessages" + response.requestId);
                     });
                     /****End of Update Data extension with the tracking details of sms from twilio*/
                 })
@@ -200,12 +201,12 @@ exports.execute = function(req, res) {
             requestForToken.write(data);
             requestForToken.end();
 
-            /**** End of Web Service ****/
+            
 
             console.log(message)
         })
         .done();
-    //add a new row with url to a data extensions
+    //nayi row add krdi de me
     // FOR TESTING
     logData(req);
     res.send(200, 'Publish');
