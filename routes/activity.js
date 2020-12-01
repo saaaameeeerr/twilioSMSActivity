@@ -109,7 +109,7 @@ exports.execute = function(req, res) {
     const to = requestBody.to;
   //  const from = requestBody.messagingService;
     console.log("yeh request body address hai " + requestBody.address);
-    const body = requestBody.body + ',' + requestBody.address;
+    const body = requestBody.body ;
 
     const client = require('twilio')(accountSid, authToken);
     client.messages
