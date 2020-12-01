@@ -164,20 +164,20 @@ exports.execute = function(req, res) {
                     const data1 = {
                         "items": [{
                             "Email": uniqueEmail,
-                            "Status": message.status,
-                            "AccountSID": message.accountSid,
-                            "apiVersion": message.apiVersion,
-                            "Body": message.body,
-                            "dateCreated": message.dateCreated,
-                            "dateUpdated": message.dateUpdated,
-                            "dateSent": message.dateSent,
-                            "direction": message.direction,
-                            "from": message.from,
-                            "messagingServiceSid": message.messagingServiceSid,
-                            "price": message.price,
-                            "priceUnit": message.priceUnit,
-                            "sid": message.sid,
-                            "uri": message.uri
+                   //         "Status": message.status,
+                     //       "AccountSID": message.accountSid,
+                       //     "apiVersion": message.apiVersion,
+                         //   "Body": message.body,
+                         //   "dateCreated": message.dateCreated,
+                         //   "dateUpdated": message.dateUpdated,
+                      //      "dateSent": message.dateSent,
+                        //    "direction": message.direction,
+                        //    "from": message.from,
+                        //    "messagingServiceSid": message.messagingServiceSid,
+                        //    "price": message.price,
+                       //     "priceUnit": message.priceUnit,
+                       //     "sid": message.sid,
+                       //     "uri": message.uri
                         }]
                     }
                     console.log(data1);
