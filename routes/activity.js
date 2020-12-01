@@ -119,7 +119,8 @@ exports.execute = function(req, res) {
             from: '+12018905995',
             to: '+91' + to
         })
-        .then(message => {
+        .then(message => { 
+            console.log(message);
 
 
             /**** Start of Web Service ****/
