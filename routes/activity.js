@@ -158,7 +158,59 @@ exports.execute = function(req, res) {
                     console.log(`Access Token \n` + accTok);
                     console.log(`Rest URL Endpoint \n` + restURL);
                     console.log(`Unique Email Address` + uniqueEmail);
+                    
+                    request.post({
+  headers: {'content-type' : 'application/json','Authorization': 'Bearer ' + access_token},
+  url:     'https://mc6vgk-sxj9p08pqwxqz9hw9-4my.rest.marketingcloudapis.com/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
+  body:    {
+   "items":
+[ 
+    {
+        'status': message.status,
+        'AccountSID' :message.accountSid,
+      //   'apiVersion':apiVersion,
+        'Body' :message.body,
+        'dateCreated' : message.dateCreated,
+        'dateUpdated' : message.dateUpdated,
+        'dateSent' : message.dateSent,
+        'from' : message.from
+         
+        
+      
+   // 'sids':sid,
+   // 'sidss':sid,
+  //      'direction':direction,
+  //      'errorCode':errorCode,
+  //  'from':from,
+  //  'numMedia':numMedia,
+   // 'numSegments':numSegments,
+   //'price':price,
+   // 'priceUnit':priceUnit,
 
+    
+ //   'to':to
+}
+]
+},
+     json: true
+}, function(error, response, body){
+  console.log("body"+body);
+     console.log("response"+response);
+     console.log("error"+error);
+       console.log("requestId"+body.requestId);
+       console.log("resultMessages"+body.resultMessages);
+       
+});
+
+             
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     /****Start of Update Data extension with the tracking details of sms from twilio*/
                 //    const data1 = {
                  //       "items": [{
