@@ -161,7 +161,7 @@ exports.execute = function(req, res) {
                     /****Start of Update Data extension with the tracking details of sms from twilio*/
                     const data1 = {
                         "items": [{
-                    //        "Email": uniqueEmail,
+                            "Email": uniqueEmail,
                             "Status": message.status,
                             "AccountSID": message.accountSid,
                     //        "apiVersion": message.apiVersion,
@@ -180,7 +180,7 @@ exports.execute = function(req, res) {
                     }
                     request.put({
                         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accTok },
-                        url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
+                        url: restURL + 'data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
                         body: data1,
                         json: true
                     }, function(error, response, body) {
