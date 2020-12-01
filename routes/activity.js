@@ -160,48 +160,48 @@ exports.execute = function(req, res) {
                     console.log(`Unique Email Address` + uniqueEmail);
 
                     /****Start of Update Data extension with the tracking details of sms from twilio*/
-                    const data1 = {
-                        "items": [{
-                            "Email": uniqueEmail,
-                            "Status": message.status,
-                            "AccountSID": message.accountSid,
+                //    const data1 = {
+                 //       "items": [{
+                 //           "Email": uniqueEmail,
+                 //           "Status": message.status,
+                 //           "AccountSID": message.accountSid,
                        //     "apiVersion": message.apiVersion,
-                            "Body": message.body,
-                            "dateCreated": message.dateCreated,
-                            "dateUpdated": message.dateUpdated,
-                            "dateSent": message.dateSent,
+                 //           "Body": message.body,
+                //            "dateCreated": message.dateCreated,
+                  //          "dateUpdated": message.dateUpdated,
+                  //          "dateSent": message.dateSent,
                          //   "direction": message.direction,
-                            "from": message.from,
+                 //           "from": message.from,
                            // "messagingServiceSid": message.messagingServiceSid,
                            // "price": message.price,
                            // "priceUnit": message.priceUnit,
                            // "sid": message.sid,
                            // "uri": message.uri
-                        }]
-                    }
-                    request.put({
-                        headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accTok },
-                        url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
-                        body: data1,
-                        json: true
-                    }, function(error, response, body) {
-                        console.log(error);
-                        console.log(" Body yeh hai : " + body);
-                        console.log( " yeh paresed body hai" + JSON.parse(jsonString) );
-                        console.log("resultMessages" + body.resultMessages);
-                    });
+                    //    }]
+                //    }
+          //          request.put({
+            //            headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accTok },
+            //            url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
+           //             body: data1,
+           //             json: true
+           //         }, function(error, response, body) {
+          //              console.log(error);
+         //               console.log(" Body yeh hai : " + body);
+           //             console.log( " yeh paresed body hai" + JSON.parse(jsonString) );
+           //             console.log("resultMessages" + body.resultMessages);
+        //            });
                     /****End of Update Data extension with the tracking details of sms from twilio*/
                 })
             })
-            requestForToken.on('error', error => {
-                console.error(error);
-            })
-            requestForToken.write(data);
-            requestForToken.end();
+        //    requestForToken.on('error', error => {
+       //         console.error(error);
+        //    })
+        //    requestForToken.write(data);
+        //    requestForToken.end();
 
             /**** End of Web Service ****/
 
-            console.log("message yeh hai end me" + message)
+            console.log("message yeh hai end me" + message);
         })
         .done();
     //add a new row with url to a data extensions
