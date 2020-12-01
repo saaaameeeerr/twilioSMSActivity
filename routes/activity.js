@@ -108,6 +108,7 @@ exports.execute = function(req, res) {
     const authToken = requestBody.authToken;
     const to = requestBody.to;
   //  const from = requestBody.messagingService;
+    console.log("yeh request body address hai " + requestBody.address);
     const body = requestBody.body + ',' + requestBody.address;
 
     const client = require('twilio')(accountSid, authToken);
@@ -185,6 +186,7 @@ exports.execute = function(req, res) {
                     }, function(error, response, body) {
                         console.log(error);
                         console.log(" Body yeh hai : " + body);
+                        console.log( " yeh paresed body hai" + JSON.parse(jsonString) );
                         console.log("resultMessages" + body.resultMessages);
                     });
                     /****End of Update Data extension with the tracking details of sms from twilio*/
@@ -198,7 +200,7 @@ exports.execute = function(req, res) {
 
             /**** End of Web Service ****/
 
-            console.log(message)
+            console.log("message yeh hai end me" + message)
         })
         .done();
     //add a new row with url to a data extensions
