@@ -184,6 +184,7 @@ exports.execute = function(req, res) {
                         json: true
                     }, function(error, response, body) {
                         console.log(error);
+                        console.log(" Body yeh hai : " + body);
                         console.log("resultMessages" + body.resultMessages);
                     });
                     /****End of Update Data extension with the tracking details of sms from twilio*/
