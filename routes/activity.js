@@ -117,7 +117,7 @@ exports.execute = function(req, res) {
         .create({
             body: body,
             statusCallback: 'http://postb.in/1234abcd',
-            from: '+12018905995',
+            from: '+19206268405',
             to: '+91' + to
         })
         .then(message => { 
@@ -129,8 +129,8 @@ exports.execute = function(req, res) {
 
 
             const data = JSON.stringify({
-                client_id: "sr7id7zht854bwdco8t9qdym", //pass Client ID
-                client_secret: "vhmEsBaxDl3LVeqYbLUxsg6p", //pass Client Secret
+                client_id: "fsnm26yphve2krbwanabb61f", //pass Client ID
+                client_secret: "gvO2Vqf3klaDwcHtn0Sj1YR3", //pass Client Secret
                 grant_type: "client_credentials"
             })
 
@@ -162,21 +162,8 @@ exports.execute = function(req, res) {
                    // yaha se start hora h 
                     const TrackingData = {
                         "items": [{
-                            "Email": uniqueEmail,
-                            "Status": message.status,
-                            "AccountSID": message.accountSid,
-                            "apiVersion": message.apiVersion,
-                            "Body": message.body,
-                            "dateCreated": message.dateCreated,
-                            "dateUpdated": message.dateUpdated,
-                            "dateSent": message.dateSent,
-                            "direction": message.direction,
-                            "from": message.from,
-                            "messagingServiceSid": message.messagingServiceSid,
-                            "price": message.price,
-                            "priceUnit": message.priceUnit,
-                            "sid": message.sid,
-                            "uri": message.uri
+                            "Message": "heyyy",
+                            "from": "8982871441"
                         }]
                     }
                     console.log(TrackingData);
@@ -184,7 +171,7 @@ exports.execute = function(req, res) {
                     //data extension me insert krwana hai ..
                     request.put({
                         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accessToken },
-                        url: restURL + '/data/v1/async/dataextensions/key:7A2B114A-71CD-4E20-AB3B-79A0B06DC1B8/rows',
+                        url: restURL + '/data/v1/async/dataextensions/key:FE689CBF-C5D5-40EB-A8EF-5D36B4C6EF5B/rows',
                         body: TrackingData,
                         json: true
                     }, function(error, response, body) {
