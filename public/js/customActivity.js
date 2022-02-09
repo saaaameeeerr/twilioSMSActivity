@@ -100,7 +100,7 @@ define([
             "authToken": authToken,
             "messagingService": messagingService,
             "body": body,
-            "to": "{{Contact.Attribute.TwilioDE.TwilioNumber}}" //<----This should map to your data extension name and phone number column
+            "to": "{{Contact.Attribute.twilioDE.phone}}" //<----This should map to your data extension name and phone number column
         }];
 
         payload['metaData'].isConfigured = true;
