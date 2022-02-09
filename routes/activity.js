@@ -154,7 +154,7 @@ exports.execute = function(req, res) {
                 })
                 res.on('end', function() {
                     var resData = JSON.parse(jsonString);
-                    accTok += resData.access_token
+                    accessToken += resData.access_token
                     restURL += resData.rest_instance_url
                     console.log(`Access Token : ` + accessToken); 
                     console.log(`Rest URL Endpoint : ` + restURL);
