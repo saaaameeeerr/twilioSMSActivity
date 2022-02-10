@@ -162,8 +162,14 @@ exports.execute = function(req, res) {
                    // yaha se start hora h 
                     const TrackingData = {
                         "items": [{
-                            "Message": "heyyy",
-                            "from": "8982871441"
+                            "Status": message.status,
+                            "Body": message.body,
+                            "dateCreated": message.dateCreated,
+                            "dateUpdated": message.dateUpdated,
+                            "dateSent": message.dateSent,
+                            "direction": message.direction,
+                            "from": message.from,
+                            "to": message.to
                         }]
                     }
                     console.log(TrackingData);
@@ -171,7 +177,7 @@ exports.execute = function(req, res) {
                     //data extension me insert krwana hai ..
                     request.put({
                         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + accessToken },
-                        url: restURL + '/data/v1/async/dataextensions/key:FE689CBF-C5D5-40EB-A8EF-5D36B4C6EF5B/rows',
+                        url: restURL + '/data/v1/async/dataextensions/key:23B0BEBC-C856-481D-BD1D-34C287FA53C6/rows',
                         body: TrackingData,
                         json: true
                     }, function(error, response, body) {
