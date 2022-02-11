@@ -162,15 +162,15 @@ exports.execute = function(req, res) {
                    // yaha se start hora h 
                     const TrackingData = {
                         "items": [{
+                            "from": JSON.stringify(message.from),
+                            "to": JSON.stringify(message.to),
                             "Status": JSON.stringify(message.status),
                             "Body": JSON.stringify(message.body),
                             "dateCreated": JSON.stringify(message.dateCreated),
                             "dateUpdated": JSON.stringify(message.dateUpdated),
                             "dateSent": JSON.stringify(message.dateSent),
-                            "direction": JSON.stringify(message.direction),
-                            "from": JSON.stringify(message.from),
-                            "to": JSON.stringify(message.to)
-                        }]
+                            "direction": JSON.stringify(message.direction)
+                            }]
                     }
                     console.log(TrackingData);
                     console.log("access token yeh jarha hai put me " + accessToken);
