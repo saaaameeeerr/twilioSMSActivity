@@ -162,14 +162,14 @@ exports.execute = function(req, res) {
                    // yaha se start hora h 
                     const TrackingData = {
                         "items": [{
-                            "Status": message.status,
-                            "Body": message.body,
-                            "dateCreated": message.dateCreated,
-                            "dateUpdated": message.dateUpdated,
-                            "dateSent": message.dateSent,
-                            "direction": message.direction,
-                            "from": message.from,
-                            "to": message.to
+                            "Status": JSON.stringify(message.status),
+                            "Body": JSON.stringify(message.body),
+                            "dateCreated": JSON.stringify(message.dateCreated),
+                            "dateUpdated": JSON.stringify(message.dateUpdated),
+                            "dateSent": JSON.stringify(message.dateSent),
+                            "direction": JSON.stringify(message.direction),
+                            "from": JSON.stringify(message.from),
+                            "to": JSON.stringify(message.to)
                         }]
                     }
                     console.log(TrackingData);
