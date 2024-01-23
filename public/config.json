@@ -17,10 +17,10 @@
         "execute": {
             "inArguments": [{
                 "email": "{{Contact.Default.EmailAddress}}",
-                "to": "{{Contact.Attribute.twilioDE.phone}}"
+                "to": "{{Contact.Attribute.SMStesttwilio.Phoneno}}"
             }],
             "outArguments": [],
-            "url": "https://messege-app-makki.herokuapp.com/journeybuilder/execute/",
+            "url": "https://smstesttwilio-6fad34df63d9.herokuapp.com/journeybuilder/execute/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -32,9 +32,9 @@
         }
     },
     "configurationArguments": {
-        "applicationExtensionKey": "30b32e37-08c5-48ed-9f5d-d85384b3e231",
+        "applicationExtensionKey": "5c746488-e34f-495c-8448-b36368b4a583",
         "save": {
-            "url": "https://messege-app-makki.herokuapp.com/journeybuilder/save/",
+            "url": "https://smstesttwilio-6fad34df63d9.herokuapp.com/journeybuilder/save/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -42,7 +42,7 @@
             "timeout": 2000
         },
         "publish": {
-            "url": "https://messege-app-makki.herokuapp.com/journeybuilder/publish/",
+            "url": "https://smstesttwilio-6fad34df63d9.herokuapp.com/journeybuilder/publish/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -50,7 +50,7 @@
             "timeout": 2000
         },
         "validate": {
-            "url": "https://messege-app-makki.herokuapp.com/journeybuilder/validate/",
+            "url": "https://smstesttwilio-6fad34df63d9.herokuapp.com/journeybuilder/validate/",
             "verb": "POST",
             "body": "",
             "format": "json",
@@ -58,7 +58,7 @@
             "timeout": 2000
         },
         "stop": {
-            "url": "https://messege-app-makki.herokuapp.com/journeybuilder/stop",
+            "url": "https://smstesttwilio-6fad34df63d9.herokuapp.com/journeybuilder/stop",
             "verb": "POST",
             "body": "",
             "format": "json",
